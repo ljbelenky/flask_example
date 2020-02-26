@@ -1,13 +1,28 @@
 import numpy as np
-from flask import Flask
+from flask import Flask, render_template, request
 from sklearn.linear_model import LinearRegression as LR
+import matplotlib.pyplot as plt 
+import os
+from PIL import Image
 
-X = np.linspace(1,100,1001).reshape(-1,1)
-y = 3 + 2*X + np.random.random()
+X = np.linspace(1,100,1001).reshape(-1,1) 
+y = 3 + 2*X + 50 * np.sin(X/5)
 
 model = LR().fit(X,y)
 
 app = Flask(__name__)
+
+@app.route('/select', methods = ['GET', 'POST'])
+def select():
+    vocab = ['fruit','berry','rose','apple', 'banana', 'aromatic','rich']
+    return render_template('select.html', vocab = vocab)
+
+@app.route('/inputs', methods = ['GET','POST'])
+def inputs():
+
+    descriptors = [request.values['description'+str(i)] for i in range(5)]
+
+    return ' '.join(descriptors)
 
 @app.route('/')
 def index():
@@ -15,7 +30,12 @@ def index():
 
 @app.route('/data')
 def data():
-    return 'The Data: <br>' +'<br>'.join([f'{[xx[0], yy[0]]}' for xx, yy in zip(X,y)])
+    plt.scatter(X,y)
+    plt.savefig('static/data.png')
+    plt.close()
+
+    return '<img src=static/data.png>'
+
 
 @app.route('/predict')
 def predict():

@@ -1,0 +1,36 @@
+<form action = '/inputs' method = "post">
+
+<select name="description0">
+    {% for each in vocab %}
+      <option value="{{each}}">{{each}}</option>
+    {% endfor %}
+  </select>
+
+  <select name="description1">
+    {% for each in vocab %}
+      <option value="{{each}}">{{each}}</option>
+    {% endfor %}
+  </select>
+
+  <select name="description2">
+    {% for each in vocab %}
+      <option value="{{each}}">{{each}}</option>
+    {% endfor %}
+  </select>
+
+  <select name="description3">
+    {% for each in vocab %}
+      <option value="{{each}}">{{each}}</option>
+    {% endfor %}
+  </select>
+
+  <select name="description4">
+    {% for each in vocab %}
+      <option value="{{each}}">{{each}}</option>
+    {% endfor %}
+  </select>
+  
+<input type="submit" name = "submit" value="submit"/>
+
+
+</form>
