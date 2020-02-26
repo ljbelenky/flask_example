@@ -1,4 +1,8 @@
-<form action = '/inputs' method = "post">
+
+
+Tell us about some of the flavors you like
+
+<form action = '/result' method = "post">
 
 <select name="description0">
     {% for each in vocab %}
@@ -6,11 +10,27 @@
     {% endfor %}
   </select>
 
+  <select name="value0">
+    {% for each in values %}
+      <option value="{{each}}">{{each}}</option>
+    {% endfor %}
+  </select>
+
+  <br>
+
   <select name="description1">
     {% for each in vocab %}
       <option value="{{each}}">{{each}}</option>
     {% endfor %}
   </select>
+
+  <select name="value1">
+    {% for each in values %}
+      <option value="{{each}}">{{each}}</option>
+    {% endfor %}
+  </select>
+
+  <br>
 
   <select name="description2">
     {% for each in vocab %}
@@ -18,18 +38,42 @@
     {% endfor %}
   </select>
 
+  <select name="value2">
+    {% for each in values %}
+      <option value="{{each}}">{{each}}</option>
+    {% endfor %}
+  </select>
+
+  <br>
+
   <select name="description3">
     {% for each in vocab %}
       <option value="{{each}}">{{each}}</option>
     {% endfor %}
   </select>
 
+  <select name="value3">
+    {% for each in values %}
+      <option value="{{each}}">{{each}}</option>
+    {% endfor %}
+  </select>
+
+  <br>
+
   <select name="description4">
     {% for each in vocab %}
       <option value="{{each}}">{{each}}</option>
     {% endfor %}
   </select>
-  
+
+  <select name="value4">
+    {% for each in values %}
+      <option value="{{each}}">{{each}}</option>
+    {% endfor %}
+  </select>
+
+  <br>
+  <br>
 <input type="submit" name = "submit" value="submit"/>
 
 
